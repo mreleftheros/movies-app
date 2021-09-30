@@ -6,12 +6,12 @@ body {
   background: linear-gradient(rgb(0, 0, 233), rgb(0, 0, 73));
 }
 
+// HEADER
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
-  box-shadow: 0 5px 3px rgba(0, 0, 0, .3);
 
   // Logo
   &__logo-container {
@@ -54,5 +54,17 @@ body {
     &__logo-container {
       display: block;
     }
+  }
+}
+
+// MAIN
+.main {
+  min-height: 90vh;
+
+  &__movies-list {
+    display: grid;
+    grid-template-columns: repeat (4 1fr);
+    list-style: none;
+    padding: 1rem;
   }
 }
