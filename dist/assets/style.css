@@ -163,6 +163,7 @@ body {
 }
 .main__arrows__left__icon {
   display: block;
+  color: #fff;
   font-size: 3rem;
   transform: translateY(-3px);
   cursor: pointer;
@@ -185,6 +186,7 @@ body {
 }
 .main__arrows__right__icon {
   display: block;
+  color: #fff;
   font-size: 3rem;
   transform: translateY(-3px);
   cursor: pointer;

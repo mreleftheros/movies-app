@@ -3,7 +3,6 @@ import ui from "./ui";
 class Movies {
   constructor() {
     this.base = "https://api.themoviedb.org/3/";
-    this.movieId;
     this.key = "713bdecf864afbdad8aa012a5d658993";
     this.query = `?api_key=${this.key}&language=en-US`;
     this.genres;
@@ -33,6 +32,18 @@ class Movies {
 
     const response = await fetch(url);
     const data = await response.json();
+
+    this.totalPages = data.total_pages;
+
+    return ui.renderMovies(data);
+  }
+  async searchMovie(movie) {
+    const urlBase = this.base + "search/movie";
+    const query = this.query + `&query=${movie}&page=${this.page}&include_adult=false`;
+    const url = urlBase + query;
+
+    const res = await fetch(url);
+    const data = await res.json();
 
     this.totalPages = data.total_pages;
 

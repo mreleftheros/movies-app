@@ -9,13 +9,16 @@ class Ui {
     this.page = document.getElementById("page");
     this.left = document.getElementById("left");
     this.right = document.getElementById("right");
+    this.searchForm = document.getElementById("searchForm");
   }
   init() {
     this.logo.addEventListener("click", () => movies.init());
     this.arrows.addEventListener("click", e => this.handleArrowsClick(e));
+    this.searchForm.addEventListener("submit", e => this.handleSearchFormSubmit(e));
   }
   renderMovies(data) {
     this.moviesList.innerHTML = ""; // clear UI
+    scrollTo(0, 0); // scroll to the top
 
     const fragment = new DocumentFragment();
 
@@ -26,7 +29,7 @@ class Ui {
       movieElement.setAttribute("data-id", result.id);
   
       let imgUrl = `https://image.tmdb.org/t/p/w500/${result.poster_path}`;
-      let year = result.release_date.split("-")[0];
+      let year = result.release_date.split("-")[0] || "";
   
       let html = `
       <figure class="main__movies-list__movie__figure">
@@ -87,6 +90,18 @@ class Ui {
       movies.page++;
       return movies.getPopularMovies();
     }
+  }
+  handleSearchFormSubmit(e) {
+    e.preventDefault();
+
+    const movieInput = e.currentTarget.search.value.trim();
+    if (movieInput === "") return; // check
+
+    e.currentTarget.reset();
+
+    movies.page = 1;
+
+    return movies.searchMovie(movieInput);
   }
 }
 
