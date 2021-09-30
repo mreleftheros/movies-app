@@ -66,7 +66,76 @@ body {
 }
 .main__movies-list {
   display: grid;
-  grid-template-columns: repeat 4 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-gap: 2rem;
   list-style: none;
   padding: 1rem;
+}
+.main__movies-list__movie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 50rem;
+  overflow: hidden;
+}
+.main__movies-list__movie:hover .main__movies-list__movie__overview {
+  transform: translateY(0);
+}
+.main__movies-list__movie__figure {
+  flex: 1;
+  width: 100%;
+  height: 90%;
+}
+.main__movies-list__movie__figure__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main__movies-list__movie__details {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-basis: 20%;
+  padding: 1rem;
+  background: white;
+}
+.main__movies-list__movie__details__title {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.main__movies-list__movie__details__rating {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.main__movies-list__movie__year {
+  font-family: "Gluten";
+  position: absolute;
+  top: 1%;
+  left: 99%;
+  transform: translate(-99%, -1%);
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+}
+.main__movies-list__movie__overview {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  text-align: justify;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
 }
