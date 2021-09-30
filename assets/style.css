@@ -148,7 +148,6 @@ body {
   color: #fff;
   text-shadow: 1px 1px 3px #000;
   height: 5rem;
-  background: rgba(255, 255, 255, 0.2);
   padding: 1rem;
 }
 .main__arrows__left {
@@ -159,7 +158,11 @@ body {
   border: none;
   background: transparent;
 }
+.main__arrows__left__icon.hide {
+  display: none;
+}
 .main__arrows__left__icon {
+  display: block;
   font-size: 3rem;
   transform: translateY(-3px);
   cursor: pointer;
@@ -177,7 +180,11 @@ body {
   border: none;
   background: transparent;
 }
+.main__arrows__right__icon.hide {
+  display: none;
+}
 .main__arrows__right__icon {
+  display: block;
   font-size: 3rem;
   transform: translateY(-3px);
   cursor: pointer;
