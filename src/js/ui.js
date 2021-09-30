@@ -82,13 +82,13 @@ class Ui {
       if (movies.page === 1) return; // check
 
       movies.page--;
-      return movies.getPopularMovies();
+      return movies.getNext();
     }
     else if (e.target.className.includes("right")) {
       if (movies.page === movies.totalPages) return; // check
 
       movies.page++;
-      return movies.getPopularMovies();
+      return movies.getNext();
     }
   }
   handleSearchFormSubmit(e) {

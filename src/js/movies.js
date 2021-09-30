@@ -8,9 +8,15 @@ class Movies {
     this.genres;
     this.page = 1;
     this.totalPages;
+    this.currentSearch;
+    this.currentMovie;
   }
   async init() {
     this.page = 1;
+    this.totalPages = null;
+    this.currentMovie = null;
+    this.currentSearch = null;
+    this.genres = null;
 
     await this.setGenres();
     await this.getPopularMovies();
@@ -26,6 +32,7 @@ class Movies {
     return this.genres = [...data.genres];
   }
   async getPopularMovies() {
+    this.currentSearch = "popular";
     const urlBase = this.base + "movie/popular";
     const query = this.query + `&page=${this.page}`;
     const url = urlBase + query;
@@ -38,6 +45,8 @@ class Movies {
     return ui.renderMovies(data);
   }
   async searchMovie(movie) {
+    this.currentSearch = "search";
+    this.currentMovie = movie;
     const urlBase = this.base + "search/movie";
     const query = this.query + `&query=${movie}&page=${this.page}&include_adult=false`;
     const url = urlBase + query;
@@ -48,6 +57,13 @@ class Movies {
     this.totalPages = data.total_pages;
 
     return ui.renderMovies(data);
+  }
+  getNext() {
+    if (this.currentSearch === "popular") {
+      return this.getPopularMovies();
+    } else if (this.currentSearch === "search") {
+      return this.searchMovie(this.currentMovie);
+    }
   }
 }
 
