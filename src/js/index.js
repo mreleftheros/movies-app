@@ -3,6 +3,7 @@ import movies from "./movies";
 
 const init = () => {
   movies.init();
+  ui.init();
 };
 
 document.addEventListener("DOMContentLoaded", init);
