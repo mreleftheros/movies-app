@@ -10,9 +10,11 @@ class Ui {
   }
   init() {
     this.logo.addEventListener("click", () => movies.init());
-    this.arrows.addEventListener("click", e => handleArrowsClick(e));
+    this.arrows.addEventListener("click", e => this.handleArrowsClick(e));
   }
   renderMovies(data) {
+    this.moviesList.innerHTML = ""; // clear UI
+
     const fragment = new DocumentFragment();
 
     data.results.forEach(result => {
@@ -53,6 +55,22 @@ class Ui {
     let html = `${page} of ${total}`;
 
     this.page.innerHTML = html;
+  }
+  handleArrowsClick(e) {
+    if (e.target.tagName !== "SPAN") return; // check
+
+    if (e.target.className.includes("left")) {
+      if (movies.page === 1) return; // check
+
+      movies.page--;
+      return movies.getPopularMovies();
+    }
+    else if (e.target.className.includes("right")) {
+      if (movies.page === movies.totalPages) return; // check
+
+      movies.page++;
+      return movies.getPopularMovies();
+    }
   }
 }
 
