@@ -5,9 +5,12 @@ class Ui {
     this.main = document.getElementById("main");
     this.moviesList = document.getElementById("moviesList");
     this.logo = document.getElementById("logo");
+    this.arrows = document.getElementById("arrows");
+    this.page = document.getElementById("page");
   }
   init() {
     this.logo.addEventListener("click", () => movies.init());
+    this.arrows.addEventListener("click", e => handleArrowsClick(e));
   }
   renderMovies(data) {
     const fragment = new DocumentFragment();
@@ -42,22 +45,14 @@ class Ui {
     })
     
     this.moviesList.appendChild(fragment);
-    this.renderArrows();
+    this.updateArrows(data.page, data.total_pages);
   }
-  renderArrows() {
-    // createElement 
-    const arrowsElement = document.createElement("div");
-    arrowsElement.classList.add("main__arrows");
+  updateArrows(page, total) {
+    this.arrows.classList.add("active");
 
-    let html = `
-      <button type="button" class="main__arrows__left">
-        <span class="main__arrows__left__icon"></span>
-      </button>
-    `;
+    let html = `${page} of ${total}`;
 
-    arrowsElement.innerHTML = html;
-
-    this.main.appendChild(arrowsElement);
+    this.page.innerHTML = html;
   }
 }
 

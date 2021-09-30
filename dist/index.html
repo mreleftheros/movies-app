@@ -16,6 +16,7 @@
     <div class="header__logo-container" id="logo">
       <h1 class="header__logo-container__logo">Movies App</h1>
     </div>
+
     <!-- Search Form -->
     <form class="header__search-form" id="searchForm">
       <input type="text" name="search" class="header__search-form__input" placeholder="Search for a movie...">
@@ -24,7 +25,19 @@
 
   <!-- MAIN -->
   <main class="main" id="main">
+    <!-- Movie List -->
     <ul class="main__movies-list" id="moviesList"></ul>
+
+    <!-- Arrows -->
+    <div class="main__arrows" id="arrows">
+      <button type="button" class="main__arrows__left">
+        <span class="main__arrows__left__icon">&#x276E;</span>
+      </button>
+      <h3 class="main__arrows__page" id="page"></h3>
+      <button type="button" class="main__arrows__right">
+        <span class="main__arrows__right__icon">&#x276F;</span>
+      </button>
+    </div>
   </main>
 
   <script src="./assets/bundle.js"></script>

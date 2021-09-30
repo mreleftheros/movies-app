@@ -138,11 +138,47 @@ body {
   transform: translateY(100%);
   transition: transform 0.3s ease-out;
 }
-.main__arrows {
+.main__arrows.active {
   display: flex;
+}
+.main__arrows {
+  display: none;
   align-items: center;
   width: 100%;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
   height: 5rem;
-  background: red;
+  background: rgba(255, 255, 255, 0.2);
   padding: 1rem;
+}
+.main__arrows__left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+}
+.main__arrows__left__icon {
+  font-size: 3rem;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+.main__arrows__page {
+  font-size: 2rem;
+  font-style: italic;
+  letter-spacing: 0.1rem;
+}
+.main__arrows__right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+}
+.main__arrows__right__icon {
+  font-size: 3rem;
+  transform: translateY(-3px);
+  cursor: pointer;
 }
