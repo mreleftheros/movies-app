@@ -157,7 +157,6 @@ body {
     color: #fff;
     text-shadow: 1px 1px 3px #000;
     height: 5rem;
-    background: rgba(255, 255, 255, .2);
     padding: 1rem;
 
     &__left {
@@ -168,7 +167,12 @@ body {
       border: none;
       background: transparent;
 
+      &__icon.hide {
+        display: none;
+      }
+
       &__icon {
+        display: block;
         font-size: 3rem;
         transform: translateY(-3px);
         cursor: pointer;
@@ -189,7 +193,12 @@ body {
       border: none;
       background: transparent;
 
+      &__icon.hide {
+        display: none;
+      }
+
       &__icon {
+        display: block;
         font-size: 3rem;
         transform: translateY(-3px);
         cursor: pointer;

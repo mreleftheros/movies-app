@@ -7,6 +7,8 @@ class Ui {
     this.logo = document.getElementById("logo");
     this.arrows = document.getElementById("arrows");
     this.page = document.getElementById("page");
+    this.left = document.getElementById("left");
+    this.right = document.getElementById("right");
   }
   init() {
     this.logo.addEventListener("click", () => movies.init());
@@ -47,12 +49,26 @@ class Ui {
     })
     
     this.moviesList.appendChild(fragment);
-    this.updateArrows(data.page, data.total_pages);
+    this.updateArrows();
   }
-  updateArrows(page, total) {
+  updateArrows() {
     this.arrows.classList.add("active");
 
-    let html = `${page} of ${total}`;
+    if (movies.page === 1) {
+      this.left.classList.add("hide");
+    }
+    else {
+      this.left.classList.remove("hide");
+    }
+
+    if (movies.page === movies.totalPages) {
+      this.right.classList.add("hide");
+    }
+    else {
+      this.right.classList.remove("hide");
+    }
+
+    let html = `${movies.page} of ${movies.totalPages}`;
 
     this.page.innerHTML = html;
   }
