@@ -112,8 +112,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .main__movies-list__movie__year {
   font-family: "Gluten";
@@ -133,9 +132,17 @@ body {
   bottom: 10%;
   width: 100%;
   background: rgba(255, 255, 255, 0.8);
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 1.8rem;
   text-align: justify;
   transform: translateY(100%);
   transition: transform 0.3s ease-out;
+}
+.main__arrows {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  background: red;
+  padding: 1rem;
 }
