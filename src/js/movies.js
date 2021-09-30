@@ -10,6 +10,8 @@ class Movies {
     this.genres;
   }
   async init() {
+    this.page = 1;
+
     await this.setGenres();
     await this.getPopularMovies();
   }
@@ -26,13 +28,12 @@ class Movies {
   async getPopularMovies() {
     const urlBase = this.base + "movie/popular";
     const query = this.query + `&page=${this.page}`;
-    this.page++;
     const url = urlBase + query;
 
     const response = await fetch(url);
     const data = await response.json();
 
-    return data.results.forEach(result => ui.renderMovie(result));
+    return ui.renderMovies(data);
   }
 }
 
