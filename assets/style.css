@@ -24,14 +24,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 12vh;
 }
 .header__logo-container {
   cursor: pointer;
   display: none;
 }
 .header__logo-container__logo {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-family: "Gluten";
   letter-spacing: 0.1rem;
   color: crimson;
@@ -62,7 +62,7 @@ body {
 }
 
 .main {
-  min-height: 90vh;
+  min-height: 88vh;
 }
 .main__movies-list {
   display: grid;
